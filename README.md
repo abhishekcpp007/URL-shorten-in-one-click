@@ -1,5 +1,4 @@
-# URL-shorten-in-one-click
-This is the code for shorten the long url
+
 Here's a basic `README.md` file for your URL shortener project:
 
 ---
@@ -78,10 +77,4 @@ The application serves static files from the `public` folder. Ensure you place y
 - **body-parser**: Parses incoming request bodies in JSON format.
 - **express.static**: Serves static files (e.g., HTML, CSS, JavaScript) from the `public` directory.
 
-## License
 
-This project is licensed under the MIT License.
-
----
-
-You can customize this file further based on any additional features or instructions you want to include!

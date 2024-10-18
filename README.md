@@ -1,80 +1,87 @@
-
-Here's a basic `README.md` file for your URL shortener project:
+Here’s a `README.md` file for your project based on the provided `package.json`:
 
 ---
 
-# URL Shortener Project
+# ShortURL - URL Shortener Application
 
 ## Overview
 
-This is a simple URL shortener application built using Node.js, Express.js, and MongoDB. The project allows users to shorten URLs, manage them, and serves static files to enable a frontend interface.
+ShortURL is a simple URL shortener built using Node.js, Express.js, and MongoDB with Mongoose for data persistence. This application allows users to shorten long URLs, store them in a MongoDB database, and redirect shortened URLs to their original destinations.
 
 ## Features
 
-- Shorten long URLs.
-- Redirect shortened URLs to their original destinations.
-- Serve static frontend files.
-- Integration with MongoDB for persistent storage.
+- Shorten long URLs with ease.
+- Redirect shortened URLs to the original links.
+- MongoDB as the primary database for storing URLs.
+- Lightweight and easy to set up.
 
 ## Requirements
 
-Before starting, ensure you have the following installed:
+Ensure you have the following installed before running the project:
 
-- [Node.js](https://nodejs.org/en/) (v14 or higher)
-- [MongoDB](https://www.mongodb.com/)
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [MongoDB](https://www.mongodb.com/) (locally or on a cloud service)
+- [Nodemon](https://www.npmjs.com/package/nodemon) (for development)
 
 ## Getting Started
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/url-shortener.git
-cd url-shortener
+git clone https://github.com/your-username/shorturl.git
+cd shorturl
 ```
 
-### 2. Install dependencies
+### 2. Install Dependencies
 
-Run the following command to install the necessary dependencies:
+Install the necessary Node.js dependencies by running the following command:
 
 ```bash
 npm install
 ```
 
-### 3. Set up MongoDB
+### 3. Set up Environment Variables
 
-Make sure your MongoDB is up and running. You will need to connect to your MongoDB instance in the `db.js` file.
+Create a `.env` file in the root of the project with your MongoDB URI and any other environment variables. Here's an example:
 
-### 4. Running the Project
-
-To start the server, use the following command:
-
-```bash
-npm start
+```
+MONGODB_URI=mongodb://localhost:27017/shorturl
+PORT=3000
 ```
 
-The application will be running on `http://localhost:3000`.
+### 4. Start the Server
 
-### 5. Endpoints
+To start the server in development mode (with auto-restart using Nodemon):
 
-- **POST /shorten**: Shortens a given URL.
-- **GET /:shortURL**: Redirects to the original URL.
+```bash
+npm run dev
+```
 
-### 6. Serving Static Files
+The server will be running on `http://localhost:3000`.
 
-The application serves static files from the `public` folder. Ensure you place your frontend files there.
+### 5. API Endpoints
+
+- **POST /shorten** - Create a shortened URL from a long URL.
+- **GET /:shortUrl** - Redirect the shortened URL to the original long URL.
 
 ## Folder Structure
 
 ```bash
-|-- public/            # Static frontend files
-|-- routes/            # URL routes handling logic
-|-- db.js              # MongoDB connection logic
-|-- app.js             # Main application logic
+|-- src/
+|   |-- routes/           # Route handling
+|   |-- server.js         # Entry point of the application
+|-- .env                  # Environment variables
+|-- package.json          # Dependencies and scripts
 ```
 
-## Middleware
+## Scripts
 
-- **body-parser**: Parses incoming request bodies in JSON format.
-- **express.static**: Serves static files (e.g., HTML, CSS, JavaScript) from the `public` directory.
+- **`npm run dev`**: Runs the application in development mode using Nodemon, automatically restarting the server on file changes.
 
+## Dependencies
 
+- **express**: Web framework for building the server.
+- **body-parser**: Middleware to parse incoming request bodies.
+- **dotenv**: Loads environment variables from a `.env` file.
+- **mongodb**: MongoDB driver for Node.js.
+- **mongoose**: MongoDB object modeling tool for schema-based data handling
